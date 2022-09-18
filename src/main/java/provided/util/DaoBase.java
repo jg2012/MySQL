@@ -66,13 +66,9 @@ public abstract class DaoBase {
    *        the prepared statement, parameters are indicated by a question mark. From left-to-right,
    *        the index is the order in which a question mark is encountered.
    * @param value The parameter value. This may be null.
-   * @param classType This is the Java class type of the parameter. It is used to select the correct
-   *        method on the driver so that the parameter is added correctly. It is also used to set
-   *        the type in case the parameter is null.
    * @throws SQLException Thrown if an error occurs.
    */
-  protected void setParameter(PreparedStatement stmt, int parameterIndex, Object value,
-      Class<?> classType) throws SQLException {
+  protected void setParameter(PreparedStatement stmt, int parameterIndex, Object value,Class<?> classType) throws SQLException {
     int sqlType = convertJavaClassToSqlType(classType);
 
     if(Objects.isNull(value)) {
